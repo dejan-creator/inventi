@@ -1,22 +1,12 @@
 import React from "react";
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { getPosts } from "./actions/postActions";
+import Posts from "./components/Posts";
 
-function App() {
-  const { posts, loading } = useSelector((state) => ({ ...state.data }));
-  const dispatch = useDispatch();
+const App = () => {
   return (
-    <div className="App">
-      <h2>Redux Posts</h2>
-      <button onClick={() => dispatch(getPosts())}>Get Posts</button>
-      {!loading ? (
-        posts.map((post) => <h3 key={post.id}>{post.body}</h3>)
-      ) : (
-        <h3>Loading ...</h3>
-      )}
+    <div className="ui container" style={{ paddingTop: "32px" }}>
+      <Posts />
     </div>
   );
-}
+};
 
 export default App;
